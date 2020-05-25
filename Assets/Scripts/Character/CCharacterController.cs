@@ -38,8 +38,8 @@ public class CCharacterController : MonoBehaviour
         Vector2 direction = new Vector2(horizontal, vertical);
         Vector2 velocity = direction.normalized * moveSpeed;
         //rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
-
-        rigidbody.velocity = velocity;
+        //rigidbody.velocity = velocity;
+        transform.Translate(velocity * Time.deltaTime);
     }
 
 }

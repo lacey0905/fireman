@@ -27,19 +27,21 @@ public class Monster : MonoBehaviour
         Vector2 velocity = direction.normalized * moveSpeed;
         float distance = Vector2.Distance(targetPos, rigidbody.position);
 
-        if(distance > 1.0f)
-        {
-            rigidbody.velocity = velocity;
-            //transform.Translate(velocity * Time.deltaTime);
-            //rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
-        }
-        //else
-        //{
-        //    rigidbody.velocity = Vector2.zero;
-        //}
+        rigidbody.velocity = velocity;
 
-        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-        
+        //if(distance > 1.0f)
+        //{
+        //    rigidbody.velocity = velocity;
+        //    //transform.Translate(velocity * Time.deltaTime);
+        //    //rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
+        //}
+        ////else
+        ////{
+        ////    rigidbody.velocity = Vector2.zero;
+        ////}
+
+        //transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+
     }
 
     public void Damage(float _damage)
@@ -51,5 +53,17 @@ public class Monster : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    //public void DamageEft()
+    //{
+    //    StartCoroutine(ResetColor());
+    //}
+
+    //IEnumerator ResetColor()
+    //{
+    //    GetComponentInChildren<SpriteRenderer>().color = new Color(0, 255, 255);
+    //    yield return new WaitForSeconds(0.1f);
+    //    GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255);
+    //}
 
 }
