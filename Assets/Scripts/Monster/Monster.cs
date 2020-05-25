@@ -29,9 +29,16 @@ public class Monster : MonoBehaviour
 
         if(distance > 1.0f)
         {
-            transform.Translate(velocity * Time.deltaTime);
+            rigidbody.velocity = velocity;
+            //transform.Translate(velocity * Time.deltaTime);
             //rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
         }
+        //else
+        //{
+        //    rigidbody.velocity = Vector2.zero;
+        //}
+
+        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         
     }
 

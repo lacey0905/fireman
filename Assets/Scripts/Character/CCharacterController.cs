@@ -24,6 +24,12 @@ public class CCharacterController : MonoBehaviour
         {
             Movement(h, v);
         }
+        else
+        {
+            rigidbody.velocity = Vector2.zero;
+        }
+
+        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 
     }
 
@@ -31,7 +37,9 @@ public class CCharacterController : MonoBehaviour
     {
         Vector2 direction = new Vector2(horizontal, vertical);
         Vector2 velocity = direction.normalized * moveSpeed;
-        rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
+        //rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
+
+        rigidbody.velocity = velocity;
     }
 
 }
