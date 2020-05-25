@@ -211,4 +211,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eftPrefab: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
   damage: 10
-  moveSpeed: 5
+  moveSpeed: 10

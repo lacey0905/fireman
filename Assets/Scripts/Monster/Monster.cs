@@ -29,7 +29,8 @@ public class Monster : MonoBehaviour
 
         if(distance > 1.0f)
         {
-            rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
+            transform.Translate(velocity * Time.deltaTime);
+            //rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
         }
         
     }

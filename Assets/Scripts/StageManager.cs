@@ -24,7 +24,7 @@ public class StageManager : MonoBehaviour
             Quaternion newRot = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
             transform.rotation = newRot;
 
-            Vector2 newSpawnPos = transform.up * distance;
+            Vector2 newSpawnPos = target.transform.position + transform.up * distance;
 
             Instantiate(monster, newSpawnPos, Quaternion.identity);
 
