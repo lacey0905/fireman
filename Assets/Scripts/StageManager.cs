@@ -9,7 +9,6 @@ public class StageManager : MonoBehaviour
 
     public Monster monster;
 
-    //public float spanwDistance = 
     public float coolTime;
 
     private float currentCoolTime = 0f;

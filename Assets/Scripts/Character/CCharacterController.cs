@@ -29,8 +29,6 @@ public class CCharacterController : MonoBehaviour
             rigidbody.velocity = Vector2.zero;
         }
 
-        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-
     }
 
     public void Movement(float horizontal, float vertical)
