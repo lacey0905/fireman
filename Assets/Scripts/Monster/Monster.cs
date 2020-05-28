@@ -44,6 +44,23 @@ public class Monster : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        CCharacterController.OnplayerDie += this.Bomb;
+    }
+
+    private void OnDisable()
+    {
+        CCharacterController.OnplayerDie -= this.Bomb;
+    }
+
+    private void Bomb()
+    {
+        CCharacterController.OnplayerDie -= this.Bomb;
+        Instantiate(dieEft, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
     public void Damage(float _damage)
     {
         hp -= _damage;
@@ -53,6 +70,7 @@ public class Monster : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 
     //public void DamageEft()
     //{

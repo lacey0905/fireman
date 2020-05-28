@@ -5,6 +5,11 @@ using UnityEngine;
 public class CCharacterController : MonoBehaviour
 {
 
+    public delegate void dieHandler();
+    public static event dieHandler OnplayerDie;
+    
+    public float hp = 100f;
+
     Rigidbody2D rigidbody;
 
     public float moveSpeed;
@@ -16,6 +21,8 @@ public class CCharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -29,7 +36,27 @@ public class CCharacterController : MonoBehaviour
             rigidbody.velocity = Vector2.zero;
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+
+        }
+
+        if (hp <= 0)
+        {
+            if (OnplayerDie != null)
+            {
+                OnplayerDie();
+            }
+        }
+
     }
+
+
+    //public void Damage(float _damage)
+    //{
+    //    hp -= _damage;
+        
+    //}
 
     public void Movement(float horizontal, float vertical)
     {
