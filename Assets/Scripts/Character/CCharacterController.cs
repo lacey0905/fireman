@@ -5,10 +5,8 @@ using UnityEngine;
 public class CCharacterController : MonoBehaviour
 {
 
-    public delegate void dieHandler();
-    public static event dieHandler OnplayerDie;
-    
-    public float hp = 100f;
+    //public delegate void dieHandler();
+    //public static event dieHandler OnplayerDie;
 
     Rigidbody2D rigidbody;
 
@@ -41,22 +39,7 @@ public class CCharacterController : MonoBehaviour
 
         }
 
-        if (hp <= 0)
-        {
-            if (OnplayerDie != null)
-            {
-                OnplayerDie();
-            }
-        }
-
     }
-
-
-    //public void Damage(float _damage)
-    //{
-    //    hp -= _damage;
-        
-    //}
 
     public void Movement(float horizontal, float vertical)
     {

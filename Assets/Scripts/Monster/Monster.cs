@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
     Vector2 direction;
 
     public float hp;
+    public float damage;
 
     private void Awake()
     {
@@ -44,23 +45,6 @@ public class Monster : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-        CCharacterController.OnplayerDie += this.Bomb;
-    }
-
-    private void OnDisable()
-    {
-        CCharacterController.OnplayerDie -= this.Bomb;
-    }
-
-    private void Bomb()
-    {
-        CCharacterController.OnplayerDie -= this.Bomb;
-        Instantiate(dieEft, transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
-    }
-
     public void Damage(float _damage)
     {
         hp -= _damage;
@@ -83,5 +67,16 @@ public class Monster : MonoBehaviour
     //    yield return new WaitForSeconds(0.1f);
     //    GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 255);
     //}
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            //Debug.Log(collision);
+            CCharacterState player = collision.gameObject.GetComponent<CCharacterState>();
+            player.Damage(damage);
+        }
+    }
 
 }
